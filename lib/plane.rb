@@ -26,13 +26,13 @@ class Plane
     seats << passenger
   end
 
-  private
-
-  attr_writer :seats
-
   def full?
     seats.length >= capacity
   end
+
+  private
+
+  attr_writer :seats
 
   def defaults
     { airborne: true, capacity: DEFAULT_SEATS }

@@ -16,8 +16,8 @@ class Passenger
 
   def board!(plane)
     fail "Check in before boarding" if !checked_in?
-    @on_board = true
     seat_passenger_on(plane)
+    @on_board = true
   end
 
   private
@@ -27,6 +27,7 @@ class Passenger
   end
 
   def seat_passenger_on(plane)
+    fail "Plane Full" if plane.full?
     plane.seats << self
   end
 end
