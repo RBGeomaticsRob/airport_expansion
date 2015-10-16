@@ -6,7 +6,7 @@ describe Airport do
   let(:plane_arrival) { subject.arrival(plane) }
   let(:plane_depature) { subject.departure }
 
-  before { allow(subject).to receive(:stormy?) { false } }
+  before { allow(Weather).to receive(:stormy?) { false } }
   before { allow(plane).to receive(:land) { plane } }
   before { allow(plane).to receive(:take_off) { plane } }
 
@@ -50,12 +50,12 @@ describe Airport do
 
     it "a plane cannot take off when there is a storm brewing" do
       plane_arrival
-      allow(subject).to receive(:stormy?) { true }
+      allow(Weather).to receive(:stormy?) { true }
       expect { plane_depature }.to raise_error "Too Stormy"
     end
 
     it "a plane cannot land in the middle of a storm" do
-      allow(subject).to receive(:stormy?) { true }
+      allow(Weather).to receive(:stormy?) { true }
       expect { plane_arrival }.to raise_error "Too Stormy"
     end
 

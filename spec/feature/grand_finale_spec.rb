@@ -4,7 +4,7 @@ feature "Grand Finale" do
 
   airport = Airport.new
 
-  before { allow(airport).to receive(:stormy?).and_return(false) }
+  before { allow(Weather).to receive(:stormy?).and_return(false) }
 
   scenario "all planes can land " do
     6.times do

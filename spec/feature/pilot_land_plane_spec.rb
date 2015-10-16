@@ -6,7 +6,7 @@ feature "a pilot can land their plane" do
   let(:airport) { Airport.new }
   let(:land_a_plane) { airport.arrival(plane) }
 
-  before { allow(airport).to receive(:stormy?).and_return(false) }
+  before { allow(Weather).to receive(:stormy?).and_return(false) }
 
   scenario "arriving at an airport" do
     land_a_plane
