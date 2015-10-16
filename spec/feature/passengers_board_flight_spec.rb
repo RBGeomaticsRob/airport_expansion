@@ -11,9 +11,8 @@ feature "a passenger can board a plane" do
     expect(plane.seats).to include(passenger)
   end
 
-  xscenario "is checked in once boarded the plane" do
-    plane.board(passenger)
-    expect(passenger).to be_checked_in
+  scenario "they must be checked in before boarding" do
+    expect { passenger.board!(plane) }.to raise_error "Check in before boarding"
   end
 
   xscenario "except when the plane is already full" do

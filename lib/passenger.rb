@@ -15,6 +15,7 @@ class Passenger
   end
 
   def board!(plane)
+    fail "Check in before boarding" if !checked_in?
     @on_board = true
     seat_passenger_on(plane)
   end

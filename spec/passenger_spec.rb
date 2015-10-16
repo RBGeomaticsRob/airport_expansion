@@ -13,4 +13,8 @@ describe Passenger do
     subject.board!(plane)
     expect(subject).to be_on_board
   end
+  it "cannot board a plane if not checked in" do
+    plane = Plane.new
+    expect { subject.board!(plane) }.to raise_error "Check in before boarding"
+  end
 end
