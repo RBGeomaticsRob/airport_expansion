@@ -24,18 +24,8 @@ describe Plane do
     expect(plane.capacity). to eq random_seating
   end
 
-  it "can seat a passenger" do
-    subject.board(passenger)
-    expect(subject.seats).to include(passenger)
-  end
-
-  it "checks a passenger in on boarding" do
-    subject.board(passenger)
-    expect(subject.seats.last).to be_checked_in
-  end
-
-  it "does not let passenger board when full" do
-    subject.capacity.times { subject.board(passenger) }
-    expect { subject.board(passenger) }.to raise_error "Plane Full"
+  it "knows when it is full" do
+    subject.capacity.times { subject.seats << passenger }
+    expect(subject).to be_full
   end
 end
