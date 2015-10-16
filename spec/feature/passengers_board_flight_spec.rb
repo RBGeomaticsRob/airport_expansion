@@ -6,7 +6,8 @@ feature "a passenger can board a plane" do
   let(:passenger) { Passenger.new }
 
   scenario "boarding a specific plane" do
-    passenger.board(plane)
+    passenger.check_in
+    passenger.board!(plane)
     expect(plane.seats).to include(passenger)
   end
 

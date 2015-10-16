@@ -10,6 +10,7 @@ describe Passenger do
   it "can board a plane if checked in" do
     plane = Plane.new
     subject.check_in
-    expect(subject.board!(plane)).to be_on_board
+    subject.board!(plane)
+    expect(subject).to be_on_board
   end
 end
