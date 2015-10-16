@@ -50,7 +50,3 @@ class Airport
     { capacity: DEFAULT_CAPACITY }
   end
 end
-
-module Weather
-
-end
