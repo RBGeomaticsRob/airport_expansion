@@ -11,14 +11,14 @@ class Airport
   end
 
   def arrival(plane)
-    fail "Airport Full" if full?
+    fail "Airport Full" if airport_full?
     fail "Too Stormy" if Weather.stormy?
     confirm_landing(plane)
     stationed_planes << plane
   end
 
   def departure(plane = default_plane)
-    fail "No plane" if empty?
+    fail "No plane" if airport_empty?
     fail "Too Stormy" if Weather.stormy?
     confirm_departure(plane)
     stationed_planes.delete(plane)
@@ -26,11 +26,11 @@ class Airport
 
   private
 
-  def full?
+  def airport_full?
     stationed_planes.length >= capacity
   end
 
-  def empty?
+  def airport_empty?
     stationed_planes.empty?
   end
 
